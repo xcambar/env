@@ -15,3 +15,7 @@ ln -s ~/.dotfiles/bundle ~/.vim/bundle
 
 # .vimrc
 ln -s ~/.dotfiles/vimrc ~/.vimrc
+
+# source to init.sh from .zshrc
+# check first the presence of the line in .zshrc
+# append the line if not available

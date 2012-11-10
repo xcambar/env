@@ -29,3 +29,7 @@ nvm alias default 0.8
 #Check the configure options to istall elsewhere that ~/.rvm
 bash ~/.dotfiles/vms/rvm/binscripts/rvm-installer stable --ruby
 
+# Tools
+
+#jshint
+npm install -g jshint

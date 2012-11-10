@@ -1,3 +1,9 @@
 install latest stable release of node via nvm
 use Rake/grunt as a build system
-fine tune the install of rvm (eg, the destination path)
+fine tune the install of rvm
+  The destination path
+  The update of .zshrc should be in .dotfiles/init.sh
+  The update of .zprofile should be in .dotfiles/init.sh !!WITH updated paths!!
+Replace .vim by a symlink to dotfiles in ~
+Tweak oh-my-zsh config during install
+  install correct theme

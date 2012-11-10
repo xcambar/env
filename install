@@ -8,17 +8,8 @@
 
 mkdir -p ~/.vim/autoload ./bundle
 
-#  VIM-PATHOGEN
-git submodule add -f https://github.com/tpope/vim-pathogen ./bundle/vim-pathogen
-
-#  NERDTREE
-git submodule add -f https://github.com/scrooloose/nerdtree.git ./bundle/nerdtree
-
-# jsHint
-git submodule add -f git://github.com/walm/jshint.vim.git ./bundle/jshint.vim
-
-# vim-fugitive
-git submodule add -f git://github.com/tpope/vim-fugitive.git ./bundle/vim-fugitive
+git submodule init
+git submodule update
 
 ln -s ~/.dotfiles/bundle ~/.vim/bundle
 

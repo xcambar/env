@@ -1,0 +1,26 @@
+#! /usr/bin/env sh
+
+#
+#
+# Requires zsh + oh-my-zsh to install
+# 
+#
+
+mkdir -p ~/.vim/autoload ./bundle
+
+#  VIM-PATHOGEN
+git clone https://github.com/tpope/vim-pathogen ./bundle/vim-pathogen
+
+#  NERDTREE
+git clone https://github.com/scrooloose/nerdtree.git ./bundle/nerdtree
+
+# jsHint
+git clone git://github.com/walm/jshint.vim.git ./bundle/jshint.vim
+
+# vim-fugitive
+git clone git://github.com/tpope/vim-fugitive.git ./bundle/vim-fugitive
+
+ln -s ~/.dotfiles/bundle ~/.vim/bundle
+
+# .vimrc
+ln -s ~/.dotfiles/vimrc ~/.vimrc

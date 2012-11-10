@@ -1,0 +1,5 @@
+#! /usr/bin/env zsh
+
+unlink ~/.vim/bundle
+rm -fr plugins
+unlink ~/.vimrc

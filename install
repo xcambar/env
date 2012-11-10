@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /usr/bin/env zsh
 
 #
 #
@@ -19,3 +19,13 @@ ln -s ~/.dotfiles/vimrc ~/.vimrc
 # source to init.sh from .zshrc
 # check first the presence of the line in .zshrc
 # append the line if not available
+
+source ~/.dotfiles/init.sh
+
+nvm install 0.8
+nvm use 0.8
+nvm alias default 0.8
+
+#Check the configure options to istall elsewhere that ~/.rvm
+bash ~/.dotfiles/vms/rvm/binscripts/rvm-installer stable --ruby
+

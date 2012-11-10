@@ -13,3 +13,6 @@
 [submodule "vms/nvm"]
 	path = vms/nvm
 	url = git://github.com/creationix/nvm.git
+[submodule "vms/rvm"]
+	path = vms/rvm
+	url = https://github.com/wayneeseguin/rvm.git

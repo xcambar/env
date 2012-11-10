@@ -1,1 +1,3 @@
+install latest stable release of node via nvm
 use Rake/grunt as a build system
+fine tune the install of rvm (eg, the destination path)

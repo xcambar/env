@@ -4,5 +4,6 @@ call pathogen#infect()
 
 syntax on
 set number
+set nowrap
 
 filetype plugin indent on

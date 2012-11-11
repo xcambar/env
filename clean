@@ -3,3 +3,7 @@
 unlink ~/.vim/bundle
 rm -fr plugins
 unlink ~/.vimrc
+
+
+cd ~/.dotfiles/tools/doctorjs
+sudo make uninstall

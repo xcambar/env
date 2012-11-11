@@ -12,3 +12,6 @@ function c () {
   cd $codePath$1
 }
 compdef '_files -W "$codePath/" -/' c
+
+#jsctags config
+export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH

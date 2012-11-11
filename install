@@ -32,4 +32,8 @@ bash ~/.dotfiles/vms/rvm/binscripts/rvm-installer stable --ruby
 # Tools
 
 #jshint
+ln -s ~/.dotfiles/jshintrc ~/.jshintrc
 npm install -g jshint
+
+cd ~/.dotfiles/tools/doctorjs
+sudo make install

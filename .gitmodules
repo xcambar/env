@@ -16,3 +16,12 @@
 [submodule "vms/rvm"]
 	path = vms/rvm
 	url = https://github.com/wayneeseguin/rvm.git
+[submodule "tools/doctorjs"]
+	path = tools/doctorjs
+	url = https://github.com/mozilla/doctorjs.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git

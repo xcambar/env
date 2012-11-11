@@ -7,3 +7,4 @@ fine tune the install of rvm
 Replace .vim by a symlink to dotfiles in ~
 Tweak oh-my-zsh config during install
   install correct theme
+Change the install path of doctorjs and prevent the need of sudo'ing te make install

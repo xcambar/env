@@ -5,6 +5,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias n=node
 alias r=ruby
+alias w=google-chrome
 
 #Defines the helper to go directly to a subdirectory of $codePath
 local codePath="$HOME/code/"

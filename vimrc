@@ -9,3 +9,6 @@ set nowrap
 set softtabstop=2 shiftwidth=2 expandtab
 
 filetype plugin indent on
+
+set background=dark
+colorscheme solarized

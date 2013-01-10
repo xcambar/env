@@ -14,3 +14,5 @@ filetype plugin indent on
 
 set background=dark
 colorscheme solarized
+
+set directory^=$HOME/.vim/tmp//

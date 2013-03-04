@@ -3,6 +3,7 @@ PATH="/usr/local/bin:$PATH" # Prefer brew over system
 
 source ~/.env/vms/nvm/nvm.sh
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/local/share/python # Homebrew python executables
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 alias n=node
@@ -18,3 +19,4 @@ compdef '_files -W "$codePath/" -/' c
 
 #jsctags config
 export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+source /Users/xav/.rvm/environments/default

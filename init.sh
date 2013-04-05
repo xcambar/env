@@ -20,3 +20,22 @@ compdef '_files -W "$codePath/" -/' c
 #jsctags config
 export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 source /Users/xav/.rvm/environments/default
+
+function npm-exec () {
+  PATH=$(npm bin):$PATH $@
+}
+
+function _comp_npm () {
+  _arguments '1: :->command_'
+  case $state in
+    command_)
+      _files -W "$(npm bin)" -/
+      ;;
+    *)
+      _files
+      ;;
+  esac
+}
+
+compdef _comp_npm npm-exec
+

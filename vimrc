@@ -51,4 +51,6 @@ let delimitMate_expand_space = 1
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
 :set laststatus=2
 
-let g:tagbar_ctags_bin = '/Users/xav/code/esprima-ctags/bin/jstags'
+autocmd FileType javascript,ruby,markdown,html,php autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+"let g:tagbar_ctags_bin = '/Users/xav/code/esprima-ctags/bin/jstags'

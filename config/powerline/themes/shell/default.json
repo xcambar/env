@@ -17,12 +17,6 @@
 	"segments": {
 		"left": [
 			{
-				"name": "hostname"
-			},
-			{
-				"name": "user"
-			},
-			{
 				"name": "virtualenv"
 			},
 			{
@@ -38,7 +32,16 @@
 				"name": "last_pipe_status"
 			},
 			{
-				"name": "branch"
+				"name": "branch",
+                                "args": {
+                                  "status_colors": true
+                                }
+			},
+			{
+				"name": "hostname"
+			},
+			{
+				"name": "user"
 			}
 		]
 	}

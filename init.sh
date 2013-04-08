@@ -17,6 +17,13 @@ function c () {
 }
 compdef '_files -W "$codePath/" -/' c
 
+#Defines the helper to go directly to a subdirectory of $codePath
+local HullCodePath="$codePath/Hull.io/"
+function ch () {
+  cd $HullCodePath$1
+}
+compdef '_files -W "$HullCodePath/" -/' ch
+
 #jsctags config
 export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 source /Users/xav/.rvm/environments/default
@@ -39,3 +46,4 @@ function _comp_npm () {
 
 compdef _comp_npm npm-exec
 
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh

@@ -48,3 +48,8 @@ pip install --user git+git://github.com/Lokaltog/powerline
 echo "You need to set up some path for the python executable... See the logs above"
 
 
+
+# Powerline
+
+take ~/.config
+ln -s ~/.env/config/* .

@@ -54,3 +54,25 @@ set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
 autocmd FileType javascript,ruby,markdown,html,php autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "let g:tagbar_ctags_bin = '/Users/xav/code/esprima-ctags/bin/jstags'
+
+
+
+" Not very efficient ATM
+" TODO: Fix when multiple windows are opened with the same buffer
+augroup SyntaxOnCurrentWindow
+  au!
+  " autocmd that will set up the w:created variable
+  autocmd VimEnter * autocmd WinEnter * let w:created=1
+  autocmd VimEnter * autocmd WinLeave * unlet w:created
+
+  " Consider this one, since WinEnter doesn't fire on the first window created when Vim launches.
+  " You'll need to set any options for the first window in your vimrc,
+  " or in an earlier VimEnter autocmd if you include this
+  autocmd VimEnter * let w:created=1
+
+  autocmd WinEnter * if exists('w:created') | set syntax=ON | endif
+  autocmd WinLeave * set syntax=OFF
+  
+  " Example of how to use w:created in an autocmd to initialize a window-local option
+  autocmd BufEnter * set syntax=ON
+augroup END

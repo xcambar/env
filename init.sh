@@ -9,6 +9,7 @@ PATH=$PATH:/usr/local/share/python # Homebrew python executables
 alias n=node
 alias r=ruby
 alias w=google-chrome
+alias v=vim
 
 #Defines the helper to go directly to a subdirectory of $codePath
 local codePath="$HOME/code/"

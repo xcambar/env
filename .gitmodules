@@ -64,3 +64,6 @@
 [submodule "bundle/vim-slim"]
 	path = bundle/vim-slim
 	url = git://github.com/slim-template/vim-slim.git
+[submodule "tools/prezto"]
+	path = tools/prezto
+	url = https://github.com/sorin-ionescu/prezto.git

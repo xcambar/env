@@ -37,11 +37,7 @@ nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :GundoToggle<CR>
 
 "Remap Tab to Esc. Use Ctrl-d/t in insert mode to indent/outdent
-nnoremap <Tab> <Esc>
-vnoremap <Tab> <Esc>gV
-onoremap <Tab> <Esc>
-inoremap <Tab> <Esc>`^
-inoremap <Leader><Tab> <Tab>`
+inoremap <Space><Space> <Esc>
 
 "delimitMate
 let delimitMate_expand_cr = 1
@@ -60,19 +56,20 @@ autocmd FileType javascript,ruby,markdown,html,php autocmd BufWritePre <buffer> 
 " Not very efficient ATM
 " TODO: Fix when multiple windows are opened with the same buffer
 augroup SyntaxOnCurrentWindow
+  set syntax=OFF
   au!
   " autocmd that will set up the w:created variable
-  autocmd VimEnter * autocmd WinEnter * let w:created=1
-  autocmd VimEnter * autocmd WinLeave * unlet w:created
+  autocmd VimEnter * autocmd WinEnter * set syntax=ON
+  autocmd VimEnter * autocmd WinLeave * set syntax=OFF
 
-  " Consider this one, since WinEnter doesn't fire on the first window created when Vim launches.
-  " You'll need to set any options for the first window in your vimrc,
-  " or in an earlier VimEnter autocmd if you include this
-  autocmd VimEnter * let w:created=1
+  "" Consider this one, since WinEnter doesn't fire on the first window created when Vim launches.
+  "" You'll need to set any options for the first window in your vimrc,
+  "" or in an earlier VimEnter autocmd if you include this
+  "autocmd VimEnter * let w:created=1
 
-  autocmd WinEnter * if exists('w:created') | set syntax=ON | endif
-  autocmd WinLeave * set syntax=OFF
+  "autocmd WinEnter * if exists('w:created') | set syntax=ON | endif
+  "autocmd WinLeave * set syntax=OFF
   
-  " Example of how to use w:created in an autocmd to initialize a window-local option
-  autocmd BufEnter * set syntax=ON
+  "" Example of how to use w:created in an autocmd to initialize a window-local option
+  "autocmd BufEnter * set syntax=ON
 augroup END

@@ -23,7 +23,7 @@ Bundle 'heavenshell/vim-jsdoc'
 Bundle 'tpope/vim-markdown'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-surround'
-
+Bundle 'Valloric/YouCompleteMe'
 
 syntax on
 set number
@@ -50,6 +50,8 @@ let g:solarized_contrast = "high"
 colorscheme solarized
 
 set directory^=$HOME/.vim/tmp//
+
+set timeoutlen=200 ttimeoutlen=200
 
 " Fixes the backspace key
 set backspace=indent,eol,start

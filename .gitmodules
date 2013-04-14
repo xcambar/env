@@ -1,15 +1,3 @@
-[submodule "bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/jshint.vim"]
-	path = bundle/jshint.vim
-	url = git://github.com/walm/jshint.vim.git
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
 [submodule "vms/nvm"]
 	path = vms/nvm
 	url = git://github.com/creationix/nvm.git
@@ -19,51 +7,10 @@
 [submodule "tools/doctorjs"]
 	path = tools/doctorjs
 	url = https://github.com/mozilla/doctorjs.git
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/vdebug"]
-	path = bundle/vdebug
-	url = https://github.com/joonty/vdebug.git
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
-[submodule "bundle/solarized"]
-	path = bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/vim-coffee-script"]
-	path = bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "bundle/vim-handlebars"]
-	path = bundle/vim-handlebars
-	url = git@github.com:nono/vim-handlebars.git
-[submodule "bundle/gundo"]
-	path = bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
-[submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
-	url = git@github.com:tpope/vim-surround.git
-[submodule "bundle/editorconfig-vim"]
-	path = bundle/editorconfig-vim
-	url = git://github.com/editorconfig/editorconfig-vim.git
-[submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
-	url = git://github.com/Raimondi/delimitMate.git
-[submodule "bundle/ctrlp.vim"]
-	path = bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/vim-jsdoc"]
-	path = bundle/vim-jsdoc
-	url = git://github.com/heavenshell/vim-jsdoc.git
-[submodule "bundle/vim-slim"]
-	path = bundle/vim-slim
-	url = git://github.com/slim-template/vim-slim.git
 [submodule "tools/prezto"]
 	path = tools/prezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "bundle/vundle"]
+	path = bundle/vundle
+	url = git://github.com/gmarik/vundle.git
+

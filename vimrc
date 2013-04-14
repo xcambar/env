@@ -1,6 +1,29 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-call pathogen#infect()
+Bundle 'gmarik/vundle'
+
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'editorconfig/editorconfig-vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'walm/jshint.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'joonty/vdebug'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-fugitive'
+Bundle 'nono/vim-handlebars'
+Bundle 'heavenshell/vim-jsdoc'
+Bundle 'tpope/vim-markdown'
+Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-surround'
+
 
 syntax on
 set number
@@ -35,9 +58,9 @@ set scrolloff=8
 
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :GundoToggle<CR>
-
 "Remap Tab to Esc. Use Ctrl-d/t in insert mode to indent/outdent
 inoremap <Space><Space> <Esc>
+nnoremap <Space><Space> i
 
 "delimitMate
 let delimitMate_expand_cr = 1

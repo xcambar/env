@@ -6,7 +6,7 @@ Nothing is meant to be perfect, but it works for me.
 
 # Typical machine
 
-This has been tested on Linux Mint 13, with zsh and oh-my-zsh preinstalled.
+This has been tested on Mac OS X Mountain Lion, with zsh and oh-my-zsh preinstalled.
 Nothing is guaranteed to work on your machine.
 
 ## Install script

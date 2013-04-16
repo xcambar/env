@@ -10,7 +10,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'
-Bundle 'scrooloose/nerdcommenter'
+"Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
@@ -24,6 +24,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'tomtom/tcomment_vim'
 
 syntax on
 set number
@@ -51,7 +52,7 @@ colorscheme solarized
 
 set directory^=$HOME/.vim/tmp//
 
-set timeoutlen=200 ttimeoutlen=200
+set timeout timeoutlen=3000 ttimeoutlen=100
 
 " Fixes the backspace key
 set backspace=indent,eol,start

@@ -25,6 +25,8 @@ Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'mattn/zencoding-vim'
+Bundle 'airblade/vim-gitgutter'
 
 syntax on
 set number

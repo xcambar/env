@@ -8,25 +8,29 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'editorconfig/editorconfig-vim'
-Bundle 'sjl/gundo.vim'
+"Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'
 "Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'joonty/vdebug'
+"Bundle 'majutsushi/tagbar'
+"Bundle 'joonty/vdebug'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'nono/vim-handlebars'
-Bundle 'heavenshell/vim-jsdoc'
+"Bundle 'heavenshell/vim-jsdoc'
 Bundle 'tpope/vim-markdown'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-surround'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace.git'
+Bundle 'tpope/vim-classpath.git'
 
 syntax on
 set number
@@ -63,9 +67,11 @@ set scrolloff=8
 
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :GundoToggle<CR>
-"Remap Tab to Esc. Use Ctrl-d/t in insert mode to indent/outdent
 inoremap <Space><Space> <Esc>
 nnoremap <Space><Space> i
+nnoremap \| :vnew<CR>:CtrlP <CR>
+nnoremap _ :new<CR>:CtrlP <CR>
+nnoremap <C-d> :q <CR>
 
 "delimitMate
 let delimitMate_expand_cr = 1
@@ -79,6 +85,11 @@ autocmd FileType javascript,ruby,markdown,html,php autocmd BufWritePre <buffer> 
 
 "let g:tagbar_ctags_bin = '/Users/xav/code/esprima-ctags/bin/jstags'
 
+"Rainbow Parentheses
+au VimEnter * RainbowParenthesesToggleAll
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 
 " Not very efficient ATM
@@ -101,3 +112,38 @@ augroup SyntaxOnCurrentWindow
   "" Example of how to use w:created in an autocmd to initialize a window-local option
   "autocmd BufEnter * set syntax=ON
 augroup END
+
+if $TMUX != ''
+
+  let s:tmux_is_last_pane = 0
+  au WinEnter * let s:tmux_is_last_pane = 0
+
+  " Like `wincmd` but also change tmux panes instead of vim windows when needed.
+  function s:TmuxWinCmd(direction)
+    let nr = winnr()
+    let tmux_last_pane = (a:direction == 'p' && s:tmux_is_last_pane)
+    if !tmux_last_pane
+      " try to switch windows within vim
+      exec 'wincmd ' . a:direction
+    endif
+    " Forward the switch panes command to tmux if:
+    " a) we're toggling between the last tmux pane;
+    " b) we tried switching windows in vim but it didn't have effect.
+    if tmux_last_pane || nr == winnr()
+      let cmd = 'tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR')
+      call system(cmd)
+      let s:tmux_is_last_pane = 1
+      echo cmd
+    else
+      let s:tmux_is_last_pane = 0
+    endif
+  endfunction
+
+  " navigate between split windows/tmux panes
+  nmap <c-j> :call <SID>TmuxWinCmd('j')<cr>
+  nmap <c-k> :call <SID>TmuxWinCmd('k')<cr>
+  nmap <c-h> :call <SID>TmuxWinCmd('h')<cr>
+  nmap <c-l> :call <SID>TmuxWinCmd('l')<cr>
+  nmap <c-\> :call <SID>TmuxWinCmd('p')<cr>
+
+end

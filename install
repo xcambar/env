@@ -2,6 +2,7 @@
 
 #
 #
+# Require Homebrew
 # Requires zsh to install
 # 
 
@@ -34,8 +35,10 @@ nvm install 0.8
 nvm use 0.8
 nvm alias default 0.8
 
-#Check the configure options to istall elsewhere that ~/.rvm
-bash ~/.env/vms/rvm/binscripts/rvm-installer stable --ruby
+brew update
+brew install rbenv
+brew install ruby-build
+echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 
 # Tools
 

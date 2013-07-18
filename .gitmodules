@@ -11,3 +11,6 @@
 	path = bundle/vundle
 	url = git://github.com/gmarik/vundle.git
 
+[submodule "tools/rbenv/plugins/rbenv-binstubs"]
+	path = tools/rbenv/plugins/rbenv-binstubs
+	url = git@github.com:ianheggie/rbenv-binstubs.git

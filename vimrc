@@ -7,6 +7,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'Raimondi/delimitMate'
+" Give a try at kana/vim-smartinput if delimitMate screws up again
 Bundle 'editorconfig/editorconfig-vim'
 "Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'

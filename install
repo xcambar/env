@@ -68,7 +68,10 @@ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pl
 
 ln -s `pwd`/.env/tools/rbenv $HOME/.rbenv 
 
-
-
-
+# The silver searcher (ag)
 brew install the_silver_searcher
+
+#vimpager
+mkdir -p ~/bin
+cd ~/bin
+git clone git@github.com:rkitover/vimpager.git

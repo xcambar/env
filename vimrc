@@ -32,6 +32,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace.git'
 Bundle 'tpope/vim-classpath.git'
+Bundle 'heartsentwined/vim-emblem'
 
 syntax on
 set number

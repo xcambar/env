@@ -67,3 +67,8 @@ ln -s ~/.env/config/* .
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
 ln -s `pwd`/.env/tools/rbenv $HOME/.rbenv 
+
+
+
+
+brew install the_silver_searcher

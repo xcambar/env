@@ -30,7 +30,7 @@
 				"exclude_modes": ["nc"],
 				"priority": 30,
                                 "args": {
-                                  "status_colors": true
+                                  "status_colors": false
                                 }
 			},
 			{

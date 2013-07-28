@@ -1,36 +1,30 @@
 {
-	"default_module": "powerline.segments.common",
-	"segment_data": {
-		"external_ip": {
-			"before": "ⓦ  "
-		},
-		"date": {
-			"before": "⌚ "
-		}
-	},
-	"segments": {
-		"right": [
-			{
-				"name": "external_ip",
-				"priority": 50
-			},
-			{
-				"name": "system_load",
-				"priority": 50
-			},
-			{
-				"name": "date"
-			},
-			{
-				"name": "date",
-				"args": {
-					"format": "%H:%M",
-					"istime": true
-				}
-			},
-			{
-				"name": "hostname"
-			}
-		]
-	}
+  "default_module": "powerline.segments.common",
+  "segment_data": {
+  },
+  "segments": {
+    "right": [
+      {
+        "module": "xcambar.segment.battery",
+        "name": "battery"
+      },
+      {
+        "name": "date",
+        "args": {
+          "format": "%m/%d"
+        }
+      },
+      {
+        "name": "date",
+        "draw_soft_divider": false,
+        "args": {
+          "format": " %H:%M",
+          "istime": true
+        }
+      },
+      {
+        "name": "hostname"
+      }
+    ]
+  }
 }

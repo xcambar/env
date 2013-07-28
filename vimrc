@@ -36,7 +36,7 @@ set encoding=utf-8
 filetype plugin indent on
 
 set background=dark
-" solarized options 
+let g:solarized_termtrans=1
 colorscheme solarized
 
 set timeout timeoutlen=3000 ttimeoutlen=100
@@ -72,4 +72,3 @@ else
   nnoremap <v> <nop>
 endif
   
-

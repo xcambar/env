@@ -75,3 +75,7 @@ brew install the_silver_searcher
 mkdir -p ~/bin
 cd ~/bin
 git clone git@github.com:rkitover/vimpager.git
+
+
+
+ln -s ~/.env/vim/config ~/.vim/config 

@@ -81,14 +81,6 @@
 				"draw_soft_divider": false,
 				"width": 3,
 				"align": "r"
-			},
-			{
-				"name": "virtcol_current",
-				"draw_soft_divider": false,
-				"priority": 20,
-				"before": ":",
-				"width": 3,
-				"align": "l"
 			}
 		]
 	}

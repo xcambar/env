@@ -79,3 +79,5 @@ git clone git@github.com:rkitover/vimpager.git
 
 
 ln -s ~/.env/vim/config ~/.vim/config 
+
+brew install tree

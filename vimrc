@@ -48,9 +48,10 @@ nnoremap <C-d> :q <CR>
 
 "Rainbow Parentheses
 au VimEnter * RainbowParenthesesToggleAll
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
 
 " Syntactic checks files on open
 let g:syntastic_check_on_open=1

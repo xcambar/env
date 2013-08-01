@@ -15,6 +15,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fireplace.git'
 Bundle 'tpope/vim-classpath.git'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'rking/ag.vim'
 
 set cursorline
 

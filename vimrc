@@ -23,6 +23,7 @@ Bundle 'heartsentwined/vim-emblem'
 syntax on
 set number
 set nowrap
+set mouse=a
 
 set softtabstop=2 shiftwidth=2 expandtab
 

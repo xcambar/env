@@ -16,6 +16,7 @@ Bundle 'tpope/vim-fireplace.git'
 Bundle 'tpope/vim-classpath.git'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
+Bundle 'bling/vim-airline'
 
 set cursorline
 
@@ -32,20 +33,21 @@ inoremap <Space><Space> <Esc>
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
-"powerline
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
-:set laststatus=2
+let g:airline_powerline_fonts = 1
+set laststatus=2
+"let g:bufferline_echo = 0
 
 " Removes trailing wihtespaces
 autocmd FileType javascript,ruby,markdown,html,php autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-"let g:tagbar_ctags_bin = '/Users/xav/code/esprima-ctags/bin/jstags'
 
 set pastetoggle=<F12>
 
 " Open splits nore naturally
 set splitbelow
 set splitright
+
+" Automatically quit NERDTree if it's the only buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 augroup CursorLine
   au!
@@ -63,39 +65,3 @@ augroup SyntaxOnCurrentWindow
   au BufWinEnter * setlocal syntax=ON
   au WinLeave * setlocal syntax=OFF
 augroup END
-
-" if $TMUX != ''
-" 
-"   let s:tmux_is_last_pane = 0
-"   au WinEnter * let s:tmux_is_last_pane = 0
-" 
-"   " Like `wincmd` but also change tmux panes instead of vim windows when needed.
-"   function s:TmuxWinCmd(direction)
-"     let nr = winnr()
-"     let tmux_last_pane = (a:direction == 'p' && s:tmux_is_last_pane)
-"     if !tmux_last_pane
-"       " try to switch windows within vim
-"       exec 'wincmd ' . a:direction
-"     endif
-"     " Forward the switch panes command to tmux if:
-"     " a) we're toggling between the last tmux pane;
-"     " b) we tried switching windows in vim but it didn't have effect.
-"     if tmux_last_pane || nr == winnr()
-"       let cmd = 'tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR')
-"       call system(cmd)
-"       let s:tmux_is_last_pane = 1
-"       echo cmd
-"     else
-"       let s:tmux_is_last_pane = 0
-"     endif
-"   endfunction
-" 
-"   " navigate between split windows/tmux panes
-"   nmap <c-j> :call <SID>TmuxWinCmd('j')<cr>
-"   nmap <c-k> :call <SID>TmuxWinCmd('k')<cr>
-"   nmap <c-h> :call <SID>TmuxWinCmd('h')<cr>
-"   nmap <c-l> :call <SID>TmuxWinCmd('l')<cr>
-"   nmap <c-\> :call <SID>TmuxWinCmd('p')<cr>
-" 
-" end
-

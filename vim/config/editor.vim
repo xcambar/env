@@ -13,12 +13,11 @@ Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fireplace.git'
+Bundle 'guns/vim-clojure-static.git'
 Bundle 'tpope/vim-classpath.git'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
 Bundle 'bling/vim-airline'
-
-set cursorline
 
 set scrolloff=8
 set directory^=$HOME/.vim/tmp//
@@ -48,14 +47,6 @@ set splitright
 
 " Automatically quit NERDTree if it's the only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-augroup CursorLine
-  au!
-  au VimEnter * setlocal cursorline
-  au WinEnter * setlocal cursorline
-  au BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
 
 " TODO: Fix when multiple windows are opened with the same buffer
 augroup SyntaxOnCurrentWindow

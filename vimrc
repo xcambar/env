@@ -19,6 +19,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'heartsentwined/vim-emblem'
+Bundle 'othree/html5.vim'
 
 syntax on
 set number

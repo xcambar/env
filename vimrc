@@ -24,6 +24,8 @@ syntax on
 set number
 set nowrap
 set mouse=a
+set nocursorline
+NoMatchParen
 
 set softtabstop=2 shiftwidth=2 expandtab
 

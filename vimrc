@@ -20,13 +20,19 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'heartsentwined/vim-emblem'
 Bundle 'othree/html5.vim'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'jlanzarotta/bufexplorer'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-vinegar'
+Bundle 'dockyard/vim-easydir'
+Bundle 'junegunn/goyo.vim'
 
 syntax on
 set number
 set nowrap
 set mouse=a
 set nocursorline
-NoMatchParen
+au VimEnter * NoMatchParen
 
 set softtabstop=2 shiftwidth=2 expandtab
 
@@ -43,19 +49,10 @@ set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
 
-set timeout timeoutlen=3000 ttimeoutlen=100
+set timeout timeoutlen=300 ttimeoutlen=100
 
 " Fixes the backspace key
 set backspace=indent,eol,start
-
-nnoremap <C-d> :q <CR>
-
-"Rainbow Parentheses
-au VimEnter * RainbowParenthesesToggleAll
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-" au Syntax * RainbowParenthesesLoadChevrons
 
 " Syntactic checks files on open
 let g:syntastic_check_on_open=1
@@ -67,7 +64,11 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
 endif
+
+" Distraction-free map
+nnoremap <S-F11> :Goyo<cr>
 
 if !exists('$VIMPAGER')
   source $HOME/.vim/config/editor.vim

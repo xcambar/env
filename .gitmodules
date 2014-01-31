@@ -14,3 +14,9 @@
 [submodule "tools/rbenv/plugins/rbenv-binstubs"]
 	path = tools/rbenv/plugins/rbenv-binstubs
 	url = git@github.com:ianheggie/rbenv-binstubs.git
+[submodule "config/base16-shell"]
+	path = config/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git
+[submodule "tools/themes/base16-iterm2"]
+	path = tools/themes/base16-iterm2
+	url = git@github.com:chriskempson/base16-iterm2.git

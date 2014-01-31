@@ -79,5 +79,10 @@ git clone git@github.com:rkitover/vimpager.git
 
 
 ln -s ~/.env/vim/config ~/.vim/config 
-
+ln -s ~/.env/config/base16-shell ~/.config/base16-shell 
 brew install tree
+
+# ghpreview
+brew install icu4c
+gem install ghpreview
+

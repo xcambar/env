@@ -74,7 +74,10 @@ let mapleader = ";"
 " Distraction-free map
 nnoremap <Leader>z :Goyo<cr>
 
-if !exists('$VIMPAGER')
+source $HOME/.vim/config/themes/base16.vim
+source $HOME/.vim/config/themes/_tmuxline.vim
+
+if !exists('vimpager')
   source $HOME/.vim/config/editor.vim
 else
   set scrolloff=0

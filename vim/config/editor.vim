@@ -34,7 +34,7 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 
 " Removes trailing wihtespaces
-autocmd FileType javascript,ruby,markdown,html,php autocmd BufWritePre <buffer> :%s/\s\+$//e
+au FileType javascript,ruby,markdown,html,php au BufWritePre <buffer> :%s/\s\+$//e
 
 set pastetoggle=<F12>
 
@@ -60,3 +60,17 @@ augroup END
 
 " Use the tree style in netrw ny default
 let g:netrw_liststyle=3
+
+" show over-long lines
+augroup xc_over_line
+  au BufEnter * hi OverLineStart ctermbg=196
+  au BufEnter * hi OverLine term=bold,underline cterm=bold,underline ctermbg=18
+  au BufEnter * call matchadd('OverlineStart', '\%81v.')
+  au BufEnter * call matchadd('Overline', '\%82v.\+')
+augroup END
+
+" Hides cursorline when in insert mode
+augroup xc_cursorline
+  au InsertEnter * hi CursorLine ctermbg=None
+  au InsertLeave * hi CursorLine ctermbg=18
+augroup end

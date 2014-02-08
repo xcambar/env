@@ -16,9 +16,10 @@ if [[ $percent -lt 10 ]]; then
   indicator='#[fg=colour196]●'
 fi
 
-charge="#[fg=colour18]⌁"
 if [[ $external = "Yes" ]]; then
-  charge="#[fg=colour9]⌁"
+  charging="#[fg=colour9]⌁"
+else
+  charging="#[fg=colour18]⌁"
 fi
 
-echo "$charge $indicator"
+echo "$charging $indicator"

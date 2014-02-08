@@ -21,13 +21,13 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'heartsentwined/vim-emblem'
 Bundle 'othree/html5.vim'
 Bundle 'tsaleh/vim-matchit'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-vinegar'
 Bundle 'dockyard/vim-easydir'
 Bundle 'junegunn/goyo.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'edkolev/tmuxline.vim'
+" TODO check why vitality's good:
+Bundle 'sjl/vitality.vim'
 
 syntax on
 set number
@@ -85,6 +85,5 @@ else
   nnoremap <v> <nop>
 endif
 
-source $HOME/.vim/config/themes/base16.vim
-source $HOME/.vim/config/themes/_tmuxline.vim
+let g:vitality_fix_cursor = 0
 

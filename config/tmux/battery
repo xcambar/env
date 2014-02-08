@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+out=`ioreg -rc AppleSmartBattery 2> /dev/null`
+max=`echo $out | grep "MaxCapacity" | sed 's/^[ \t]*"MaxCapacity" = \([0-9]\)/\1/g'`
+current=`echo $out | grep "CurrentCapacity" | sed 's/^[ \t]*"CurrentCapacity" = \([0-9]\)/\1/g'`
+external=`echo $out | grep "ExternalConnected"| sed 's/^[ \t]*"ExternalConnected" = \([a-zA-Z]\)/\1/g'`
+
+percent=$(($current * 100 / $max))
+
+indicator='#[fg=colour28]●'
+
+if [[ $percent -lt 30 ]]; then
+  indicator='#[fg=colour16]●'
+fi
+if [[ $percent -lt 10 ]]; then
+  indicator='#[fg=colour196]●'
+fi
+
+charge="#[fg=colour18]⌁"
+if [[ $external = "Yes" ]]; then
+  charge="#[fg=colour9]⌁"
+fi
+
+echo "$charge $indicator"

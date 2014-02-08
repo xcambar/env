@@ -1,9 +1,9 @@
 Bundle 'eiginn/netrw'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-" Bundle 'Raimondi/delimitMate'
+Bundle 'Raimondi/delimitMate'
 " Give a try at kana/vim-smartinput if delimitMate screws up again
-Bundle 'kana/vim-smartinput'
+" Bundle 'kana/vim-smartinput'
 Bundle 'majutsushi/tagbar'
 "Bundle 'joonty/vdebug'
 Bundle 'tpope/vim-surround'
@@ -19,30 +19,25 @@ Bundle 'mattn/emmet-vim'
 
 set scrolloff=8
 set directory^=$HOME/.vim/tmp//
+set pastetoggle=<F12>
 
+" Open splits more naturally
+set splitbelow
+set splitright
+
+nnoremap <c-q> :q<CR>
 nnoremap <F2> :Ex<CR>
 nnoremap <leader>a :Ag 
 nnoremap \| :vnew<CR>:CtrlP <CR>
 nnoremap _ :new<CR>:CtrlP <CR>
 nnoremap ii i
 inoremap ii <Esc>
-"delimitMate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
 
-let g:airline_powerline_fonts = 1
-set laststatus=2
+source $HOME/.vim/config/plugins/airline.vim
+source $HOME/.vim/config/plugins/delimitmate.vim
 
 " Removes trailing wihtespaces
 au FileType javascript,ruby,markdown,html,php au BufWritePre <buffer> :%s/\s\+$//e
-
-set pastetoggle=<F12>
-
-nnoremap <c-q> :q<CR>
-
-" Open splits more naturally
-set splitbelow
-set splitright
 
 " TODO: Fix when multiple windows are opened with the same buffer
 " TODO: Works badly with Goyo

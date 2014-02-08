@@ -25,9 +25,12 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'dockyard/vim-easydir'
 Bundle 'junegunn/goyo.vim'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'edkolev/tmuxline.vim'
-" TODO check why vitality's good:
-Bundle 'sjl/vitality.vim'
+" " No longer required since statusline is already generated
+" " Bundle 'edkolev/tmuxline.vim'
+" " TODO check why vitality's good:
+" Bundle 'sjl/vitality.vim'
+" let g:vitality_fix_cursor = 0
+
 
 syntax on
 set number
@@ -59,20 +62,18 @@ set timeout timeoutlen=300 ttimeoutlen=100
 " Fixes the backspace key
 set backspace=indent,eol,start
 
-" Link vim's default delete/yank register to the system clipboard.
-" When the "unnamed" string is included in the 'clipboard' option, the unnamed
-" register is the same as the "* register.  Thus you can yank to and paste the
+" Yank to and paste the
 " selection without prepending "* to commands.
 " @see https://github.com/pda/dotvim/blob/master/vimrc
 set clipboard=unnamed
-
-source $HOME/.vim/config/plugins/syntastic.vim
-source $HOME/.vim/config/plugins/ag.vim
 
 let g:mapleader = ";"
 let mapleader = ";"
 " Distraction-free map
 nnoremap <Leader>z :Goyo<cr>
+
+source $HOME/.vim/config/plugins/syntastic.vim
+source $HOME/.vim/config/plugins/ag.vim
 
 source $HOME/.vim/config/themes/base16.vim
 source $HOME/.vim/config/themes/_tmuxline.vim
@@ -80,10 +81,6 @@ source $HOME/.vim/config/themes/_tmuxline.vim
 if !exists('vimpager')
   source $HOME/.vim/config/editor.vim
 else
-  set scrolloff=0
-  let vimpager_scrolloff=0
-  nnoremap <v> <nop>
+  source $HOME/.vim/config/pager.vim
 endif
-
-let g:vitality_fix_cursor = 0
 

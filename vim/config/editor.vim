@@ -16,11 +16,13 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
 Bundle 'bling/vim-airline'
 Bundle 'mattn/emmet-vim'
+Bundle 'scrooloose/nerdtree'
 
 set scrolloff=8
 set directory^=$HOME/.vim/tmp//
 set splitbelow
 set splitright
+set autoindent
 
 set pastetoggle=<F12>
 
@@ -31,9 +33,12 @@ nnoremap _ :new<CR>
 nnoremap ii i
 inoremap ii <Esc>
 
+command Cdb execute "cd %:p:h"
+
 source $HOME/.vim/config/plugins/netrw.vim
 source $HOME/.vim/config/plugins/airline.vim
 source $HOME/.vim/config/plugins/delimitmate.vim
+source $HOME/.vim/config/plugins/nerdtree.vim
 source $HOME/.vim/config/syntax.vim
 source $HOME/.vim/config/overline.vim
 source $HOME/.vim/config/cursorline.vim

@@ -1,0 +1,1 @@
+" let NERDTreeHijackNetrw=1

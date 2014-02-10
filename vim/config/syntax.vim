@@ -2,9 +2,9 @@
 " TODO: Works badly with Goyo
 augroup SyntaxOnCurrentWindow
   au!
-  au VimEnter     * setlocal syntax=ON
-  au WinEnter     * setlocal syntax=ON
-  au BufWinEnter  * setlocal syntax=ON
+  au VimEnter     * if &ft | setlocal syntax=ON | endif
+  au WinEnter     * if &ft | setlocal syntax=ON | endif
+  au BufWinEnter  * if &ft | setlocal syntax=ON | endif
   au WinLeave     * setlocal syntax=OFF
   au VimEnter     * setlocal cursorline
   au WinEnter     * setlocal cursorline

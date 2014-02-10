@@ -10,7 +10,6 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'walm/jshint.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'tpope/vim-markdown'
@@ -20,14 +19,13 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'heartsentwined/vim-emblem'
 Bundle 'othree/html5.vim'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-vinegar'
 Bundle 'dockyard/vim-easydir'
 Bundle 'junegunn/goyo.vim'
 Bundle 'vim-ruby/vim-ruby'
-" " No longer required since statusline is already generated
-" " Bundle 'edkolev/tmuxline.vim'
-" " TODO check why vitality's good:
+" No longer required since statusline is already generated
+" Bundle 'edkolev/tmuxline.vim'
+" TODO check why vitality's good:
 " Bundle 'sjl/vitality.vim'
 " let g:vitality_fix_cursor = 0
 

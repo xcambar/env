@@ -17,6 +17,7 @@ Bundle 'rking/ag.vim'
 Bundle 'bling/vim-airline'
 Bundle 'mattn/emmet-vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'dirkwallenstein/vim-match-control' " Replace with xcambar/vim-match-control
 
 set scrolloff=8
 set directory^=$HOME/.vim/tmp//
@@ -39,8 +40,8 @@ source $HOME/.vim/config/plugins/netrw.vim
 source $HOME/.vim/config/plugins/airline.vim
 source $HOME/.vim/config/plugins/delimitmate.vim
 source $HOME/.vim/config/plugins/nerdtree.vim
+source $HOME/.vim/config/plugins/match-control.vim
 source $HOME/.vim/config/syntax.vim
-source $HOME/.vim/config/overline.vim
 source $HOME/.vim/config/cursorline.vim
 
 " Removes trailing wihtespaces

@@ -23,13 +23,14 @@ Bundle 'othree/html5.vim'
 Bundle 'dockyard/vim-easydir'
 Bundle 'junegunn/goyo.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'nathanaelkane/vim-indent-guides'
 " No longer required since statusline is already generated
 " Bundle 'edkolev/tmuxline.vim'
 " TODO check why vitality's good:
 " Bundle 'sjl/vitality.vim'
 " let g:vitality_fix_cursor = 0
 
-
+set shortmess+=I
 syntax on
 set number
 set nowrap
@@ -38,7 +39,7 @@ set cursorline
 
 au VimEnter * NoMatchParen
 
-set softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 set ignorecase
 set smartcase
@@ -70,10 +71,10 @@ let mapleader = ";"
 " Distraction-free map
 nnoremap <Leader>z :Goyo<cr>
 
+source $HOME/.vim/config/themes/base16.vim
 source $HOME/.vim/config/plugins/syntastic.vim
 source $HOME/.vim/config/plugins/ag.vim
 
-source $HOME/.vim/config/themes/base16.vim
 source $HOME/.vim/config/themes/_tmuxline.vim
 
 if !exists('vimpager')
@@ -82,3 +83,4 @@ else
   source $HOME/.vim/config/pager.vim
 endif
 
+source $HOME/.vim/config/plugins/vim-indent-guides.vim

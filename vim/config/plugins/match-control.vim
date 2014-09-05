@@ -12,3 +12,12 @@ let g:mc_patterns = [{
       \ },
     \ },
 \ },]
+
+" TODO Implement the following config format
+" let g:mc_patterns = [{
+"   \ 'buftypes': ['*', '!quickfix', '!help']],
+"   \ 'permanent': [
+"     \ ['_xc_OverLineStart', '\%81v.', -70],
+"     \ ['_xc_OverLine', '\%82v.\+', -70],
+"   \ ],
+" \ },]

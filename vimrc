@@ -9,27 +9,34 @@ Bundle 'gmarik/vundle'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'walm/jshint.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'chriskempson/base16-vim'
-Bundle 'nono/vim-handlebars'
-Bundle 'tpope/vim-markdown'
-Bundle 'slim-template/vim-slim'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'mhinz/vim-signify'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'guns/vim-clojure-static'
 Bundle 'heartsentwined/vim-emblem'
-Bundle 'othree/html5.vim'
 " Bundle 'tpope/vim-vinegar'
 Bundle 'dockyard/vim-easydir'
 Bundle 'junegunn/goyo.vim'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'chase/vim-ansible-yaml'
 " No longer required since statusline is already generated
 " Bundle 'edkolev/tmuxline.vim'
 " TODO check why vitality's good:
 " Bundle 'sjl/vitality.vim'
 " let g:vitality_fix_cursor = 0
+Bundle 'junegunn/vim-emoji'
 
+Bundle 'sheerun/vim-polyglot'
+" Replaces the following:
+  " Bundle 'kchmck/vim-coffee-script'
+  " Bundle 'nono/vim-handlebars'
+  " Bundle 'tpope/vim-markdown'
+  " Bundle 'slim-template/vim-slim'
+  " Bundle 'othree/html5.vim'
+  " Bundle 'guns/vim-clojure-static'
+  " Bundle 'vim-ruby/vim-ruby'
+
+
+set hidden
 set shortmess+=I
 syntax on
 set number
@@ -54,6 +61,11 @@ set ttyfast
 set ttymouse=xterm2
 set lazyredraw
 
+set nobackup
+set noswapfile
+set autoindent
+set copyindent
+
 filetype plugin indent on
 
 set timeout timeoutlen=300 ttimeoutlen=100
@@ -74,6 +86,7 @@ nnoremap <Leader>z :Goyo<cr>
 source $HOME/.vim/config/themes/base16.vim
 source $HOME/.vim/config/plugins/syntastic.vim
 source $HOME/.vim/config/plugins/ag.vim
+source $HOME/.vim/config/plugins/vim-emoji.vim
 
 source $HOME/.vim/config/themes/_tmuxline.vim
 

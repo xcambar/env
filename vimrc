@@ -6,18 +6,10 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'walm/jshint.vim'
-Bundle 'scrooloose/syntastic'
 Bundle 'chriskempson/base16-vim'
 Bundle 'mhinz/vim-signify'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'heartsentwined/vim-emblem'
 " Bundle 'tpope/vim-vinegar'
-Bundle 'dockyard/vim-easydir'
-Bundle 'junegunn/goyo.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'chase/vim-ansible-yaml'
 " No longer required since statusline is already generated
 " Bundle 'edkolev/tmuxline.vim'
 " TODO check why vitality's good:
@@ -27,6 +19,7 @@ Bundle 'junegunn/vim-emoji'
 
 Bundle 'sheerun/vim-polyglot'
 " Replaces the following:
+  " Bundle 'heartsentwined/vim-emblem'
   " Bundle 'kchmck/vim-coffee-script'
   " Bundle 'nono/vim-handlebars'
   " Bundle 'tpope/vim-markdown'
@@ -35,6 +28,7 @@ Bundle 'sheerun/vim-polyglot'
   " Bundle 'guns/vim-clojure-static'
   " Bundle 'vim-ruby/vim-ruby'
 
+source $HOME/.vim/config/themes/base16.vim
 
 set hidden
 set shortmess+=I
@@ -83,17 +77,10 @@ let mapleader = ";"
 " Distraction-free map
 nnoremap <Leader>z :Goyo<cr>
 
-source $HOME/.vim/config/themes/base16.vim
-source $HOME/.vim/config/plugins/syntastic.vim
-source $HOME/.vim/config/plugins/ag.vim
 source $HOME/.vim/config/plugins/vim-emoji.vim
-
-source $HOME/.vim/config/themes/_tmuxline.vim
 
 if !exists('vimpager')
   source $HOME/.vim/config/editor.vim
 else
   source $HOME/.vim/config/pager.vim
 endif
-
-source $HOME/.vim/config/plugins/vim-indent-guides.vim

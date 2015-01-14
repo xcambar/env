@@ -85,3 +85,10 @@ brew install tree
 gem install bundler
 
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+tic ~/.env/tools/italics-term/xterm-256color-italic.terminfo
+echo "iTerm2 -> Preferences -> Text -> italics text allowed"
+echo "iTerm2 -> Preferences -> Terminal -> Report terminal tye: xterm256-color-italic"
+
+# Disable local time machine backups
+sudo tmutil disablelocal

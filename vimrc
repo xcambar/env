@@ -1,34 +1,51 @@
 set nocompatible
 
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugins')
 
-Bundle 'gmarik/vundle'
+Plug 'chriskempson/base16-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/vim-emoji', { 'for': ['markdown'] }
+Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure'] }
 
-Bundle 'chriskempson/base16-vim'
-Bundle 'mhinz/vim-signify'
-Bundle 'kien/rainbow_parentheses.vim'
-" Bundle 'tpope/vim-vinegar'
-" No longer required since statusline is already generated
-" Bundle 'edkolev/tmuxline.vim'
-" TODO check why vitality's good:
-" Bundle 'sjl/vitality.vim'
-" let g:vitality_fix_cursor = 0
-Bundle 'junegunn/vim-emoji'
-
-Bundle 'sheerun/vim-polyglot'
-" Replaces the following:
-  " Bundle 'heartsentwined/vim-emblem'
-  " Bundle 'kchmck/vim-coffee-script'
-  " Bundle 'nono/vim-handlebars'
-  " Bundle 'tpope/vim-markdown'
-  " Bundle 'slim-template/vim-slim'
-  " Bundle 'othree/html5.vim'
-  " Bundle 'guns/vim-clojure-static'
-  " Bundle 'vim-ruby/vim-ruby'
+" Editor Only
+if !exists('vimpager')
+  Plug 'mhinz/vim-signify'
+  " Plug 'tpope/vim-fugitive'
+  Plug 'kien/ctrlp.vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-surround'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'rking/ag.vim'
+  " Plug 'bling/vim-airline' " Fix config or remove.
+  Plug 'mattn/emmet-vim'
+  Plug 'scrooloose/nerdtree'
+  " TODO Replace with xcambar/vim-match-control
+  Plug 'dirkwallenstein/vim-match-control'
+  Plug 'matze/vim-move.git'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-repeat'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'walm/jshint.vim'
+  Plug 'scrooloose/syntastic'
+  Plug 'dockyard/vim-easydir'
+  Plug 'junegunn/goyo.vim'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'majutsushi/tagbar'
+  " Clojure only
+  Plug 'tpope/vim-fireplace.git', { 'for': ['clojure'] }
+  Plug 'tpope/vim-leiningen.git', { 'for': ['clojure'] }
+  Plug 'tpope/vim-classpath.git', { 'for': ['clojure'] }
+  Plug 'guns/vim-sexp', { 'for': ['clojure'] }
+  Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': ['clojure'] }
+  autocmd VimEnter * source $HOME/.vim/config/editor.vim
+else
+  autocmd VimEnter * source $HOME/.vim/config/pager.vim
+endif
+call plug#end()
 
 source $HOME/.vim/config/themes/base16.vim
+source $HOME/.vim/config/plugins/vim-emoji.vim
 
 set hidden
 set shortmess+=I
@@ -76,11 +93,5 @@ let g:mapleader = ";"
 let mapleader = ";"
 " Distraction-free map
 nnoremap <Leader>z :Goyo<cr>
+highlight Comment cterm=italic
 
-source $HOME/.vim/config/plugins/vim-emoji.vim
-
-if !exists('vimpager')
-  source $HOME/.vim/config/editor.vim
-else
-  source $HOME/.vim/config/pager.vim
-endif

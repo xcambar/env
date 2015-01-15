@@ -1,37 +1,3 @@
-Bundle 'eiginn/netrw'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'majutsushi/tagbar'
-"Bundle 'joonty/vdebug'
-Bundle 'tpope/vim-surround'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-fireplace.git'
-Bundle 'tpope/vim-leiningen.git'
-Bundle 'tpope/vim-classpath.git'
-Bundle "guns/vim-sexp"
-Bundle "tpope/vim-sexp-mappings-for-regular-people"
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'rking/ag.vim'
-Bundle 'bling/vim-airline'
-Bundle 'mattn/emmet-vim'
-Bundle 'scrooloose/nerdtree'
-" TODO Replace with xcambar/vim-match-control
-Bundle 'dirkwallenstein/vim-match-control'
-Bundle 'matze/vim-move.git'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-rails'
-Bundle 'szw/vim-ctrlspace'
-Bundle "marijnh/tern_for_vim"
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'walm/jshint.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'dockyard/vim-easydir'
-Bundle 'junegunn/goyo.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'chase/vim-ansible-yaml'
-
 source $HOME/.vim/config/plugins/syntastic.vim
 source $HOME/.vim/config/plugins/ag.vim
 

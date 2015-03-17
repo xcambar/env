@@ -7,22 +7,21 @@ Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-emoji', { 'for': ['markdown'] }
 Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure'] }
+Plug 'airblade/vim-gitgutter'
 
 " Editor Only
 if !exists('vimpager')
-  Plug 'mhinz/vim-signify'
   " Plug 'tpope/vim-fugitive'
   Plug 'kien/ctrlp.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
-  Plug 'tomtom/tcomment_vim'
+  Plug 'tomtom/tcomment_vim' "commentary
   Plug 'rking/ag.vim'
-  " Plug 'bling/vim-airline' " Fix config or remove.
   Plug 'mattn/emmet-vim'
   Plug 'scrooloose/nerdtree'
   " TODO Replace with xcambar/vim-match-control
   Plug 'dirkwallenstein/vim-match-control'
-  Plug 'matze/vim-move.git'
+  Plug 'matze/vim-move'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-repeat'
   Plug 'editorconfig/editorconfig-vim'
@@ -32,12 +31,14 @@ if !exists('vimpager')
   Plug 'junegunn/goyo.vim'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'majutsushi/tagbar'
-  " Clojure only
-  Plug 'tpope/vim-fireplace.git', { 'for': ['clojure'] }
-  Plug 'tpope/vim-leiningen.git', { 'for': ['clojure'] }
-  Plug 'tpope/vim-classpath.git', { 'for': ['clojure'] }
-  Plug 'guns/vim-sexp', { 'for': ['clojure'] }
-  Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': ['clojure'] }
+  " Clojure
+  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+  Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
+  Plug 'tpope/vim-classpath', { 'for': 'clojure' }
+  Plug 'guns/vim-sexp', { 'for': 'clojure' }
+  Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+  " Python
+  Plug 'nvie/vim-flake8', { 'for': 'python' }
   autocmd VimEnter * source $HOME/.vim/config/editor.vim
 else
   autocmd VimEnter * source $HOME/.vim/config/pager.vim
@@ -51,6 +52,7 @@ set hidden
 set shortmess+=I
 syntax on
 set number
+set relativenumber
 set nowrap
 set mouse=a
 set cursorline
@@ -95,3 +97,30 @@ let mapleader = ";"
 nnoremap <Leader>z :Goyo<cr>
 highlight Comment cterm=italic
 
+" let opt_DimInactiveWin=0
+" hi Inactive ctermfg=8
+" fun! ToggleDimInactiveWin()
+"     if g:opt_DimInactiveWin
+"         autocmd! DimWindows
+"         windo syntax clear Inactive
+"     else
+"         windo syntax region Inactive start='^' end='$'
+"         syntax clear Inactive
+"         augroup DimWindows
+"             autocmd BufEnter * syntax clear Inactive
+"             autocmd BufLeave * syntax region Inactive start='^' end='$'
+"         augroup end
+"     en
+"     let g:opt_DimInactiveWin=!g:opt_DimInactiveWin
+" endfun
+set laststatus=2
+
+highlight clear SignColumn
+highlight GitGutterAdd ctermbg=None
+highlight GitGutterChange ctermbg=None
+highlight GitGutterDelete ctermbg=None
+highlight GitGutterChangeDelete ctermbg=None
+highlight LineNr ctermbg=0 ctermfg=18
+highlight CursorLineNr ctermbg=255
+highlight CursorLine ctermbg=None
+highlight NonText ctermfg=0

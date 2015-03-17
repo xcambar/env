@@ -21,13 +21,11 @@ inoremap ii <Esc>
 command Cdb execute "cd %:p:h"
 
 source $HOME/.vim/config/plugins/netrw.vim
-source $HOME/.vim/config/plugins/airline.vim
 " source $HOME/.vim/config/plugins/delimitmate.vim
 source $HOME/.vim/config/plugins/nerdtree.vim
 source $HOME/.vim/config/plugins/match-control.vim
 source $HOME/.vim/config/plugins/vim-move.vim
 source $HOME/.vim/config/syntax.vim
-source $HOME/.vim/config/cursorline.vim
 source $HOME/.vim/config/plugins/vim-indent-guides.vim
 
 " Removes trailing wihtespaces

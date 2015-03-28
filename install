@@ -92,3 +92,7 @@ echo "iTerm2 -> Preferences -> Terminal -> Report terminal tye: xterm256-color-i
 
 # Disable local time machine backups
 sudo tmutil disablelocal
+
+brew install fzf
+$(brew info fzf | grep /install)
+

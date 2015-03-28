@@ -36,6 +36,6 @@ augroup clojure_rainbow
   au FileType clojure au Syntax * RainbowParenthesesLoadRound
   au FileType clojure au Syntax * RainbowParenthesesLoadSquare
   au FileType clojure au Syntax * RainbowParenthesesLoadBraces
-  nnoremap <C-e> :Eval<cr>
+  au FileType clojure nnoremap <C-e> :Eval<cr>
   " nnoremap E :%Eval<cr>
 augroup END

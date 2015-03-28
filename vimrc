@@ -67,6 +67,9 @@ set incsearch
 set hlsearch
 nnoremap ? :noh<cr>
 
+set list
+set listchars=tab:->,trail:~,extends:>,precedes:<
+
 set termencoding=utf-8
 set encoding=utf-8
 
@@ -97,30 +100,14 @@ let mapleader = ";"
 nnoremap <Leader>z :Goyo<cr>
 highlight Comment cterm=italic
 
-" let opt_DimInactiveWin=0
-" hi Inactive ctermfg=8
-" fun! ToggleDimInactiveWin()
-"     if g:opt_DimInactiveWin
-"         autocmd! DimWindows
-"         windo syntax clear Inactive
-"     else
-"         windo syntax region Inactive start='^' end='$'
-"         syntax clear Inactive
-"         augroup DimWindows
-"             autocmd BufEnter * syntax clear Inactive
-"             autocmd BufLeave * syntax region Inactive start='^' end='$'
-"         augroup end
-"     en
-"     let g:opt_DimInactiveWin=!g:opt_DimInactiveWin
-" endfun
-set laststatus=2
+set laststatus=1
 
+highlight LineNr ctermbg=None ctermfg=8
+highlight CursorLineNr ctermbg=20 ctermfg=18
 highlight clear SignColumn
 highlight GitGutterAdd ctermbg=None
 highlight GitGutterChange ctermbg=None
 highlight GitGutterDelete ctermbg=None
 highlight GitGutterChangeDelete ctermbg=None
-highlight LineNr ctermbg=0 ctermfg=18
-highlight CursorLineNr ctermbg=255
 highlight CursorLine ctermbg=None
-highlight NonText ctermfg=0
+highlight NonText ctermfg=None

@@ -1,57 +1,75 @@
+# Adapted from:
 #
-# A minimal theme for my minimal needs.
-#
+# Pure
+# by Sindre Sorhus
+# https://github.com/sindresorhus/pure
+# MIT License
 
-# autoload -Uz promptinit && promptinit
+# For my own and others sanity
+# git:
+# %b => current branch
+# %a => current action (rebase/merge)
+# prompt:
+# %F => color dict
+# %f => reset color
+# %~ => current path
+# %* => time
+# %n => username
+# %m => shortname host
+# %(?..) => prompt conditional - %(condition.true.false)
 
-function prompt_xcambar_precmd {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
-  function prompt_width () {
-    echo $(( ${#${(S%%)1//(\%([KF1]|)\{*\}|\%[BbkfUu])}} ))
-  }
+# fastest possible way to check if repo is dirty
+prompt_pure_git_dirty() {
+  # git info
+  vcs_info
 
-  if (( $+functions[git-info] )); then
-    git-info
-  fi
+  # check if we're in a git repo
+  [[ "$(command git rev-parse --is-inside-work-tree 2>/dev/null)" == "true" ]] || return
+  # check if it's dirty
 
-  local no_git=" %F{01}(╯°∿°)╯ ┻━┻%f"
-  local _prompt_left="%F{08}${(l:2::·:)} %F{14}%~%f "
-  local _prompt_right="${git_info[prompt]:-${no_git}} %F{08}${(l:2::·:)}%f"
-
-  local line1_left_width=$(prompt_width $_prompt_left)
-  local line1_right_width=$(prompt_width $_prompt_right)
-  local screen_width=$(tput cols)
-  local filler_width=(( $screen_width - $line1_left_width - $line1_right_width - 1))
-  local _prompt_filler="%{%F{08}%}${(l:$filler_width::·:)}%{$reset_color%}"
-
-  PROMPT="
-${_prompt_left}${_prompt_filler}${_prompt_right}    ツ "
-
+  local git_status=`echo $vcs_info_msg_0_ | xargs`
+  command test -n "$(git status --porcelain --ignore-submodules -uno)" \
+    && echo "%F{16}($git_status)%f" \
+    || echo "%F{7}($git_status)%f"
 }
 
-function __prompt {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
-  prompt_opts=(cr percent subst)
+prompt_pure_precmd() {
+  print -P "\n %F{blue}%~ \e[3m`prompt_pure_git_dirty`\e[23m"
+}
 
-  # Load required functions.
+#
+# vim mode
+#
+function zle-line-init zle-keymap-select {
+  # prompt turns red if the previous command didn't exit with 0
+  DEFAULT_PROMPT=" %(?.%F{5}.%F{9})❯%f"
+
+  VIM_PROMPT="%F{3} ⬢%f"
+  PROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/$DEFAULT_PROMPT} "
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+
+prompt_pure_setup() {
+  # prevent percentage showing up
+  # if output doesn't end with a newline
+  export PROMPT_EOL_MARK=''
+
+  # disable auth prompting on git 2.3+
+  export GIT_TERMINAL_PROMPT=0
+
+  prompt_opts=(cr subst percent)
+
   autoload -Uz add-zsh-hook
+  autoload -Uz vcs_info
 
-  # Add hook for calling vcs_info before each command.
-  add-zsh-hook precmd prompt_xcambar_precmd
+  add-zsh-hook precmd prompt_pure_precmd
 
-  #If plain text is boring, maybe use colored versions of ●
-  zstyle ':prezto:module:git:info:branch' format ' %U%F{81}%b%f%u'
-  zstyle ':prezto:module:git:info:untracked' format ' %F{161}untracked%f'
-  zstyle ':prezto:module:git:info:unindexed' format ' %F{166}unstaged%f'
-  zstyle ':prezto:module:git:info:indexed' format ' %F{118}staged%f'
-  zstyle ':prezto:module:git:info:keys' format \
-    'prompt' '%b%u%i%I'
-
-  # TODO Move it left
-  # zstyle ':prezto:module:editor:info:keymap:alternate' format "%B%F{160}◀■■■%f%b"
-  # RPROMPT=${editor_info[keymap]}
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:git*' formats ' %b'
+  zstyle ':vcs_info:git*' actionformats ' %b|%a'
 }
 
-__prompt "$@"
+prompt_pure_setup "$@"

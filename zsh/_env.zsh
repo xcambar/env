@@ -9,8 +9,10 @@
 # Smart URLs
 #
 
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
+#fixed by https://github.com/zsh-users/zsh-syntax-highlighting/issues/46
+autoload -U url-quote-magic
+function __url_quote_magic__and__zsh_highlight() { url-quote-magic; _zsh_highlight }
+zle -N self-insert __url_quote_magic__and__zsh_highlight
 
 #
 # General

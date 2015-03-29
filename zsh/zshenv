@@ -1,0 +1,60 @@
+#
+# Defines environment variables.
+#
+
+#
+# Browser
+#
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export BROWSER='open'
+fi
+
+#
+# Editors
+#
+
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='vimpager'
+
+#
+# Language
+#
+
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
+
+
+# Set the list of directories that Zsh searches for programs.
+path=(
+  /Applications/Postgres.app/Contents/Versions/9.3/bin
+  /usr/local/{bin,sbin}
+  /usr/local/share/python
+  /usr/local/opt/go/libexec/bin
+  $path
+)
+
+export RBENV_ROOT=/usr/local/var/rbenv
+
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+# Useful for Karma, as Chrome is installed via Cask
+export CHROME_BIN=CHROME_BIN=~/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+
+#boot2docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/xav/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+export CURL_CA_BUNDLE=/usr/local/etc/openssl/certs/cacert.pem
+
+#erlang
+MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
+
+: ${BASE16_LOCATION:="$HOME/.config/base16-shell"}
+: ${BASE16_SCHEME:="flat"}
+: ${BASE16_MODE:="dark"}

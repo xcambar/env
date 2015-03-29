@@ -1,0 +1,55 @@
+#
+# Executes commands at the start of an interactive session.
+#
+
+
+. "${ZDOTDIR:-$HOME}/.zsh/zgen/zgen.zsh"
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+if ! zgen saved; then
+  zgen load chrissicool/zsh-256color
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load zsh-users/zsh-completions src
+  zgen load zsh-users/zsh-history-substring-search
+  zgen save
+fi
+
+. "$HOME/.zsh/_completion.zsh"
+. "$HOME/.zsh/_vim.zsh"
+. "$HOME/.zsh/_tmux.zsh"
+. "$HOME/.zsh/_env.zsh"
+. "$HOME/.zsh/_utils.zsh"
+. "$HOME/.zsh/_git.zsh"
+. "$HOME/.zsh/_node.zsh"
+. "$HOME/.zsh/_base16.zsh"
+. "$HOME/.zsh/_theme.zsh"
+
+# Ensure path arrays do not contain duplicates.
+typeset -gU cdpath fpath mailpath path
+# Reclaim Ctrl-S and Ctrl-Q (Ctrl-Q is used in Vim)
+stty start undef
+stty stop undef
+#
+# Defines the helper to go directly to a subdirectory of $codePath
+#
+local codePath="$HOME/code/"
+function c () {
+  cd $codePath$1
+}
+compdef '_files -W "$codePath/" -/' c
+
+#fig, figfiles
+alias fig="REQUESTS_CA_BUNDLE=~/.boot2docker/certs/boot2docker-vm/ca.pem fig"
+alias figfiles="REQUESTS_CA_BUNDLE=~/.boot2docker/certs/boot2docker-vm/ca.pem figfiles"
+
+alias less=$PAGER
+alias zless=$PAGER
+alias cat=$PAGER
+alias bcat=/bin/cat
+
+#Z
+. `brew --prefix`/etc/profile.d/z.sh
+
+# Apply the theme
+b16 "$BASE16_SCHEME" "$BASE16_MODE"

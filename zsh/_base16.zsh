@@ -7,7 +7,7 @@ function b16 () {
   local mode="$2";
   local def="$BASE16_LOCATION/base16-$theme.$mode.sh"
   if [[ -s $def ]]; then
-    . $def
+    . "$def"
     export BASE16_SCHEME="$theme"
     export BASE16_MODE="$mode"
   fi

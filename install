@@ -6,12 +6,6 @@
 # Requires zsh to install
 # 
 
-# install prezto 
-ln -s `pwd`/tools/prezto "${ZDOTDIR:-$HOME}"/.zprezto
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do                                                                                              master  xav
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-
 mkdir -p ~/.vim/autoload ./bundle ~/.vim/tmp
 
 git submodule init 

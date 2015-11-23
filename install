@@ -81,6 +81,7 @@ gem install bundler
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 tic ~/.env/tools/italics-term/xterm-256color-italic.terminfo
+tic ~/.env/tools/italics-term/screen-256color-italic.terminfo
 echo "iTerm2 -> Preferences -> Text -> italics text allowed"
 echo "iTerm2 -> Preferences -> Terminal -> Report terminal tye: xterm256-color-italic"
 

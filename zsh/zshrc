@@ -24,6 +24,7 @@ fi
 . "$HOME/.zsh/_node.zsh"
 . "$HOME/.zsh/_base16.zsh"
 . "$HOME/.zsh/_theme.zsh"
+. "$HOME/.zsh/_fzf.zsh"
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -46,10 +47,23 @@ alias figfiles="REQUESTS_CA_BUNDLE=~/.boot2docker/certs/boot2docker-vm/ca.pem fi
 alias less=$PAGER
 alias zless=$PAGER
 alias cat=$PAGER
-alias bcat=/bin/cat
+alias bcat=/bin/cat #Use \cat works too
+alias nv=nvim
+alias vim=nvim
+alias ip='ipconfig getifaddr en0'
 
 #Z
 . `brew --prefix`/etc/profile.d/z.sh
 
 # Apply the theme
 b16 "$BASE16_SCHEME" "$BASE16_MODE"
+
+# Ag + fzf + vim
+agv() {
+  [ $# -eq 0 ] && return
+  local out cols
+  if out=$(ag --nogroup "$@" | fzf); then
+    cols=("${(@s/:/)out}")
+    vim ${cols[1]} +"normal! ${cols[2]}zz"
+  fi
+}

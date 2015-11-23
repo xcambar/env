@@ -1,0 +1,16 @@
+[user]
+  name = Xavier Cambar
+  email = xcambar@gmail.com
+[core]
+  excludesfile = /Users/xav/.gitignore_global
+[mergetool]
+  keepBackup = true
+
+[github]
+  user = xcambar
+
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"

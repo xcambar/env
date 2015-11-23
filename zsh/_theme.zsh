@@ -20,21 +20,32 @@
 
 # fastest possible way to check if repo is dirty
 prompt_pure_git_dirty() {
+  function join { local IFS="$1"; shift; echo "$*";  }
+
+  local status_char="◼ "
+
   # git info
   vcs_info
 
   # check if we're in a git repo
   [[ "$(command git rev-parse --is-inside-work-tree 2>/dev/null)" == "true" ]] || return
-  # check if it's dirty
 
-  local git_status=`echo $vcs_info_msg_0_ | xargs`
-  command test -n "$(git status --porcelain --ignore-submodules -uno)" \
-    && echo "%F{16}($git_status)%f" \
-    || echo "%F{7}($git_status)%f"
+  local git_status="$(git status --porcelain 2> /dev/null)"
+  ## Unstaged changes
+  if [[ $git_status =~ ($'\n'|^).[MD] ]]; then local has_unstaged="%F{1}$status_char%f"; fi
+  ## Staged changes
+  if [[ $git_status =~ ($'\n'|^)[MADR] ]]; then local has_staged="%F{2}$status_char%f"; fi
+  ## Untracked files
+  grep -c "^??" > /dev/null <<< $git_status && local has_untracked="$status_char"
+
+  [[ -z "$has_unstaged$has_staged$has_untracked" ]] || local repo_status=" $has_unstaged$has_staged$has_untracked"
+
+  local git_branch=`echo $vcs_info_msg_0_ | xargs`
+  echo  "%F{16}$git_branch%f$repo_status"
 }
 
 prompt_pure_precmd() {
-  print -P "\n %F{blue}%~ \e[3m`prompt_pure_git_dirty`\e[23m"
+  print -P "\n %F{blue}%~ `prompt_pure_git_dirty`"
 }
 
 #

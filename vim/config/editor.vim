@@ -30,12 +30,11 @@ source $HOME/.vim/config/plugins/vim-indent-guides.vim
 
 " Removes trailing wihtespaces
 au FileType javascript,ruby,markdown,html,php au BufWritePre <buffer> :%s/\s\+$//e
+let g:rainbow_active = 1
 augroup clojure_rainbow
   autocmd!
-  au FileType clojure au VimEnter * RainbowParenthesesActivate
-  au FileType clojure au Syntax * RainbowParenthesesLoadRound
-  au FileType clojure au Syntax * RainbowParenthesesLoadSquare
-  au FileType clojure au Syntax * RainbowParenthesesLoadBraces
-  au FileType clojure nnoremap <C-e> :Eval<cr>
-  " nnoremap E :%Eval<cr>
+  au FileType clojure RainbowParentheses
+  au FileType clojure nnoremap <c-e> :Eval<cr>
+  nnoremap E :%Eval<CR>
+  nnoremap <C-e> :Eval<CR>
 augroup END

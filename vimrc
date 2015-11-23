@@ -1,24 +1,32 @@
-set nocompatible
+if !has('nvim')
+  set nocompatible
+endif
 
 call plug#begin('~/.vim/plugins')
 
 Plug 'chriskempson/base16-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+if !has('nvim')
+  Plug 'wincent/terminus' "dosn't work with Neovim (yet)
+endif
 Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/vim-emoji', { 'for': ['markdown'] }
-Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure'] }
+Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
+" Plug 'luochen1990/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'airblade/vim-gitgutter'
 
 " Editor Only
 if !exists('vimpager')
-  " Plug 'tpope/vim-fugitive'
+  set rtp+=/usr/local/Cellar/fzf/HEAD "FZF
+  Plug 'tpope/vim-fugitive'
   Plug 'kien/ctrlp.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
   Plug 'tomtom/tcomment_vim' "commentary
   Plug 'rking/ag.vim'
   Plug 'mattn/emmet-vim'
-  Plug 'scrooloose/nerdtree'
   " TODO Replace with xcambar/vim-match-control
   Plug 'dirkwallenstein/vim-match-control'
   Plug 'matze/vim-move'
@@ -31,6 +39,7 @@ if !exists('vimpager')
   Plug 'junegunn/goyo.vim'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'majutsushi/tagbar'
+  " Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
   " Clojure
   Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
   Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
@@ -73,8 +82,10 @@ set listchars=tab:->,trail:~,extends:>,precedes:<
 set termencoding=utf-8
 set encoding=utf-8
 
-set ttyfast
-set ttymouse=xterm2
+if !has('nvim')
+  set ttyfast
+  set ttymouse=xterm2
+endif
 set lazyredraw
 
 set nobackup
@@ -88,6 +99,10 @@ set timeout timeoutlen=300 ttimeoutlen=100
 
 " Fixes the backspace key
 set backspace=indent,eol,start
+"See https://github.com/neovim/neovim/issues/2048#issuecomment-78534227
+if has('nvim')
+  nmap <BS> <C-W>h
+endif
 
 " Yank to and paste the
 " selection without prepending "* to commands.
@@ -111,3 +126,10 @@ highlight GitGutterDelete ctermbg=None
 highlight GitGutterChangeDelete ctermbg=None
 highlight CursorLine ctermbg=None
 highlight NonText ctermfg=None
+
+nnoremap Q <nop>
+
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+" map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
+map ,v :split <C-R>=expand("%:p:h") . "/" <CR>

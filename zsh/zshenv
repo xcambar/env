@@ -26,10 +26,11 @@ if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
+# A better LC_CTYPE
+export LC_CTYPE="en_US.UTF-8"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /Applications/Postgres.app/Contents/Versions/9.3/bin
   /usr/local/{bin,sbin}
   /usr/local/share/python
   /usr/local/opt/go/libexec/bin
@@ -38,10 +39,12 @@ path=(
 
 export RBENV_ROOT=/usr/local/var/rbenv
 
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+# export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+export NVM_DIR="/Users/xav/.nvm"
 
 # Useful for Karma, as Chrome is installed via Cask
 export CHROME_BIN=CHROME_BIN=~/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
@@ -50,7 +53,7 @@ export CHROME_BIN=CHROME_BIN=~/Applications/Google\ Chrome.app/Contents/MacOS/Go
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/xav/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
-export CURL_CA_BUNDLE=/usr/local/etc/openssl/certs/cacert.pem
+# export CURL_CA_BUNDLE=/usr/local/etc/openssl/certs/cert.pem
 
 #erlang
 MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
@@ -58,3 +61,10 @@ MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
 : ${BASE16_LOCATION:="$HOME/.config/base16-shell"}
 : ${BASE16_SCHEME:="flat"}
 : ${BASE16_MODE:="dark"}
+
+# unset because homebrew fails to download because of certificates
+# (remove and brew install anything --force to test)
+unset CURL_CA_BUNDLE
+unset SSL_CERT_FILE
+
+export PATH="$HOME/bin:$PATH"

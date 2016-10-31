@@ -37,7 +37,6 @@ install mysql
 install optipng
 install phantomjs
 install python
-install rbenv
 install reattach-to-user-namespace
 install redis
 install ruby-build

@@ -68,3 +68,44 @@ function find-exec {
 function psu {
   ps -U "${1:-$USER}" -o 'pid,%cpu,%mem,command' "${(@)argv[2,-1]}"
 }
+
+alias dk='docker'
+alias dkc='docker-compose'
+function dksh() {
+  [[ -z "$DOCKER_MACHINE_NAME" ]] && echo "No active docker machine" && return 1
+  [[ -n "$COMPOSE_PROJECT_NAME" ]] && local prefix="${COMPOSE_PROJECT_NAME}_"
+  local name=`docker ps --format "{{.Names}}" --filter "name=$prefix$1"`
+  docker exec -it "$name" bash
+}
+alias dkm='docker-machine'
+alias dkmls='docker-machine ls --quiet'
+function dkma() {
+  local machine=${1:-$COMPOSE_PROJECT_NAME}
+  if [[ -z "$machine" ]]; then
+    echo "No machine specified."
+  else
+    docker-machine start "$machine"
+    eval $(docker-machine env "$machine")
+  fi
+}
+function dkmh() {
+  local machine=${1:-$COMPOSE_PROJECT_NAME}
+  if [[ -z "$machine" ]]; then
+    echo "No machine specified."
+  else
+    echo "Stopping machine $machine"
+    docker-machine stop "$machine"
+    eval $(docker-machine env -u)
+  fi
+}
+
+function ssl-dev() {
+  local _path=~/code/ssl_dev_config/
+  local-ssl-proxy -s $1 -t $2 -k ${_path}ssl.key -c ${_path}ssl.crt
+}
+
+function serve() {
+  local port=${1:-8000}
+  echo "Serving on port $port"
+  python -m SimpleHTTPServer "$port" > /dev/null 2>&1
+}

@@ -20,27 +20,26 @@ fi
 # Auto Start
 #
 
-if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" ]]; then
-  tmux_session='_default_'
-
-  # Create the default '#Prezto' session if not available. 
-  if ! tmux has-session -t "$tmux_session" 2> /dev/null; then
-    tmux start-server \; new-session -d -s "$tmux_session" \; set-option -t "$tmux_session" destroy-unattached off &> /dev/null
-  fi
-
-  #By default, prezto sets destroy-unattached to on
-  tmux_destroy_unattached=`tmux show-options -v -g destroy-unattached`
-  if [[ -z "$tmux_destroy_unattached" ]]; then
-    tmux set-option -g destroy-unattached on
-  fi
-
-  # Attach to the 'prezto' session or to the last session used.
-  exec tmux attach-session
-  return 0;
-fi
+# if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" ]]; then
+#   tmux_session='_default_'
+#
+#   # Create the default '#Prezto' session if not available.
+#   if ! tmux has-session -t "$tmux_session" 2> /dev/null; then
+#     tmux start-server \; new-session -d -s "$tmux_session" \; set-option -t "$tmux_session" destroy-unattached off &> /dev/null
+#   fi
+#
+#   #By default, prezto sets destroy-unattached to on
+#   tmux_destroy_unattached=`tmux show-options -v -g destroy-unattached`
+#   if [[ -z "$tmux_destroy_unattached" ]]; then
+#     tmux set-option -g destroy-unattached on
+#   fi
+#
+#   # Attach to the 'prezto' session or to the last session used.
+#   exec tmux attach-session
+#   return 0;
+# fi
 
 
 
 source /usr/local/bin/virtualenvwrapper.sh
-eval "$(rbenv init -)"
 [ -s "$NVM_DIR/nvm.sh"   ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

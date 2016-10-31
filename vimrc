@@ -2,6 +2,9 @@ if !has('nvim')
   set nocompatible
 endif
 
+" See https://github.com/sheerun/vim-polyglot/blob/master/config.vim#L2-L4
+let g:jsx_ext_required = 1
+
 call plug#begin('~/.vim/plugins')
 
 Plug 'chriskempson/base16-vim'
@@ -10,6 +13,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 if !has('nvim')
   Plug 'wincent/terminus' "dosn't work with Neovim (yet)
 endif
+Plug 'thinca/vim-localrc'
 Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
@@ -19,9 +23,9 @@ Plug 'airblade/vim-gitgutter'
 
 " Editor Only
 if !exists('vimpager')
-  set rtp+=/usr/local/Cellar/fzf/HEAD "FZF
+  set rtp+=/usr/local/opt/fzf "FZF
+  Plug 'mbbill/undotree'
   Plug 'tpope/vim-fugitive'
-  Plug 'kien/ctrlp.vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
   Plug 'tomtom/tcomment_vim' "commentary
@@ -34,12 +38,14 @@ if !exists('vimpager')
   Plug 'tpope/vim-repeat'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'walm/jshint.vim'
-  Plug 'scrooloose/syntastic'
+  " Plug 'scrooloose/syntastic'
+  Plug 'benekastah/neomake'
   Plug 'dockyard/vim-easydir'
   Plug 'junegunn/goyo.vim'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'majutsushi/tagbar'
-  " Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
+  Plug 'junegunn/fzf', { 'do': 'yes \| ./install'  }
+  Plug 'junegunn/fzf.vim'
   " Clojure
   Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
   Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
@@ -48,6 +54,11 @@ if !exists('vimpager')
   Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
   " Python
   Plug 'nvie/vim-flake8', { 'for': 'python' }
+  Plug 'kennethzfeng/vim-raml'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'archSeer/elixir.nvim' "for deoplete support
+  Plug 'Shougo/deoplete.nvim'
   autocmd VimEnter * source $HOME/.vim/config/editor.vim
 else
   autocmd VimEnter * source $HOME/.vim/config/pager.vim
@@ -113,7 +124,6 @@ let g:mapleader = ";"
 let mapleader = ";"
 " Distraction-free map
 nnoremap <Leader>z :Goyo<cr>
-highlight Comment cterm=italic
 
 set laststatus=1
 
@@ -133,3 +143,22 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 " map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,v :split <C-R>=expand("%:p:h") . "/" <CR>
+
+let g:surround_no_insert_mappings = 1
+inoremap <silent> <C-E> <C-R>=AutoPairsInsert('{')<CR>
+inoremap <silent> <C-R> <C-R>=AutoPairsInsert('}')<CR>
+inoremap <silent> <C-D> <C-R>=AutoPairsInsert('(')<CR>
+inoremap <silent> <C-F> <C-R>=AutoPairsInsert(')')<CR>
+inoremap <silent> <C-X> <C-R>=AutoPairsInsert('[')<CR>
+inoremap <silent> <C-C> <C-R>=AutoPairsInsert(']')<CR>
+
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>

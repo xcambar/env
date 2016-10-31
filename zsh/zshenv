@@ -14,8 +14,8 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='vimpager'
 
 #
@@ -36,8 +36,6 @@ path=(
   /usr/local/opt/go/libexec/bin
   $path
 )
-
-export RBENV_ROOT=/usr/local/var/rbenv
 
 # export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 

@@ -1,16 +1,21 @@
 [user]
   name = Xavier Cambar
   email = xcambar@gmail.com
+	signingkey = 71BEFDD3500CDC09
 [core]
   excludesfile = /Users/xav/.gitignore_global
-[mergetool]
-  keepBackup = true
-
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [github]
   user = xcambar
-
-[color "diff-highlight"]
-  oldNormal = "red bold"
-  oldHighlight = "red bold 52"
-  newNormal = "green bold"
-  newHighlight = "green bold 22"
+[push]
+	default = simple
+# [pager]
+# 	log = diff-so-fancy | less --tabs=4 -RFX
+# 	diff = diff-so-fancy | less --tabs=4 -RFX
+# 	show = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+	diffFilter = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+	compactionHeuristic = true
+[commit]
+	gpgsign = true

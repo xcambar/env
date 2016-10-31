@@ -18,6 +18,13 @@
 # %m => shortname host
 # %(?..) => prompt conditional - %(condition.true.false)
 
+strlen () {
+  FOO=$1
+  local zero='%([BSUbfksu]|([FB]|){*})'
+  LEN=${#${(S%%)FOO//$~zero/}}
+  echo $LEN
+}
+
 # fastest possible way to check if repo is dirty
 prompt_pure_git_dirty() {
   function join { local IFS="$1"; shift; echo "$*";  }
@@ -41,11 +48,21 @@ prompt_pure_git_dirty() {
   [[ -z "$has_unstaged$has_staged$has_untracked" ]] || local repo_status=" $has_unstaged$has_staged$has_untracked"
 
   local git_branch=`echo $vcs_info_msg_0_ | xargs`
-  echo  "%F{16}$git_branch%f$repo_status"
+  echo  " %F{6}$git_branch%f$repo_status"
+}
+
+function docker_indicator() {
+  if [[ -n "$DOCKER_MACHINE_NAME" ]]; then
+    [[ `docker-machine ls --quiet --filter "state=Running" | wc -l | xargs` > 1 ]] && local _color="red" || local _color="grey"
+    echo " %F{$_color}[🐳  $DOCKER_MACHINE_NAME]%f"
+  fi
 }
 
 prompt_pure_precmd() {
-  print -P "\n %F{blue}%~ `prompt_pure_git_dirty`"
+  local _pre="\n %F{blue}%~`prompt_pure_git_dirty`"
+  local _docker="`docker_indicator`"
+  # local _len=$(( `tput cols` - $( strlen _docker ) - $( strlen _pre ) ))
+  print -P "$_pre$_docker"
 }
 
 #

@@ -4,11 +4,11 @@
 #
 # Require Homebrew
 # Requires zsh to install
-# 
+#
 
 mkdir -p ~/.vim/autoload ./bundle ~/.vim/tmp
 
-git submodule init 
+git submodule init
 git submodule update --recursive
 
 ln -s ~/.env/bundle ~/.vim/bundle
@@ -30,9 +30,6 @@ nvm use 0.8
 nvm alias default 0.8
 
 brew update
-brew install rbenv
-brew install ruby-build
-echo 'eval "$(rbenv init -)"' >> ~/.zprofile
 
 # Tools
 
@@ -60,8 +57,6 @@ ln -s ~/.env/config/* .
 # Disable spotlight
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
-ln -s `pwd`/.env/tools/rbenv $HOME/.rbenv 
-
 # The silver searcher (ag)
 brew install the_silver_searcher
 
@@ -72,18 +67,13 @@ git clone git@github.com:rkitover/vimpager.git
 
 
 
-ln -s ~/.env/vim/config ~/.vim/config 
-ln -s ~/.env/config/base16-shell ~/.config/base16-shell 
+ln -s ~/.env/vim/config ~/.vim/config
+ln -s ~/.env/config/base16-shell ~/.config/base16-shell
 brew install tree
 
 gem install bundler
 
 defaults write -g ApplePressAndHoldEnabled -bool false
-
-tic ~/.env/tools/italics-term/xterm-256color-italic.terminfo
-tic ~/.env/tools/italics-term/screen-256color-italic.terminfo
-echo "iTerm2 -> Preferences -> Text -> italics text allowed"
-echo "iTerm2 -> Preferences -> Terminal -> Report terminal tye: xterm256-color-italic"
 
 # Disable local time machine backups
 sudo tmutil disablelocal

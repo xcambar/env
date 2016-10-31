@@ -67,3 +67,6 @@ agv() {
     vim ${cols[1]} +"normal! ${cols[2]}zz"
   fi
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(direnv hook zsh)"

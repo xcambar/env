@@ -1,6 +1,5 @@
 {
     "node" : true,
-    "browser" : true,
     "devel": true,
 
     "curly": false,
@@ -31,6 +30,7 @@
     "funcscope": false,
     "globalstrict": false,
     "lastsemic": false,
-    "loopfunc": false
+    "loopfunc": false,
+    "esnext": true
     
 }

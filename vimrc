@@ -55,7 +55,7 @@ if !exists('vimpager')
   " Python
   Plug 'nvie/vim-flake8', { 'for': 'python' }
   Plug 'kennethzfeng/vim-raml'
-  Plug 'SirVer/ultisnips'
+  " Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'archSeer/elixir.nvim' "for deoplete support
   Plug 'Shougo/deoplete.nvim'

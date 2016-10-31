@@ -126,4 +126,3 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 . `brew --prefix`/etc/profile.d/z.sh
 
 source /usr/local/share/zsh/site-functions/_aws
-source /usr/local/share/zsh/site-functions/_tmuxinator

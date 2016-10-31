@@ -40,20 +40,12 @@ function c () {
 }
 compdef '_files -W "$codePath/" -/' c
 
-#fig, figfiles
-alias fig="REQUESTS_CA_BUNDLE=~/.boot2docker/certs/boot2docker-vm/ca.pem fig"
-alias figfiles="REQUESTS_CA_BUNDLE=~/.boot2docker/certs/boot2docker-vm/ca.pem figfiles"
-
 alias less=$PAGER
 alias zless=$PAGER
 alias cat=$PAGER
 alias bcat=/bin/cat #Use \cat works too
-alias nv=nvim
 alias vim=nvim
 alias ip='ipconfig getifaddr en0'
-
-#Z
-. `brew --prefix`/etc/profile.d/z.sh
 
 # Apply the theme
 b16 "$BASE16_SCHEME" "$BASE16_MODE"

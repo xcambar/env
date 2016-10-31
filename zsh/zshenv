@@ -55,10 +55,6 @@ export DOCKER_TLS_VERIFY=1
 #erlang
 MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
 
-: ${BASE16_LOCATION:="$HOME/.config/base16-shell"}
-: ${BASE16_SCHEME:="flat"}
-: ${BASE16_MODE:="dark"}
-
 # unset because homebrew fails to download because of certificates
 # (remove and brew install anything --force to test)
 unset CURL_CA_BUNDLE
